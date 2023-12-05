@@ -15,7 +15,8 @@ public interface PatientRepository extends JpaRepository<Patient, Long>{
 	public List<Patient> findByNomContainingAndMalade(String name, Boolean malad);
 	// attention de la definition de Page
 	public Page<Patient> findByMalade(Boolean malad,Pageable pageable);
-	// 用SQL语句构建一个 JPA里不存在的方法
+	
+	// 用SQL语句构建一个 JPA里不存在的方法 x y z 代表cherchePqtient的三个参数
 	@Query("Select p from Patient p Where dateNaiss between :x and :y or p.name :z")
 	List<Patient> cherchePatient (Date d1, Date d2, String nom);
 }
