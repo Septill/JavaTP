@@ -72,6 +72,7 @@ public class TpJpaApplication implements CommandLineRunner{
 		});
 		
 		System.out.println("**************************** affiche par PAGE");
+		//第二页  每页3个
 		Page<Patient> patientPage = patientRepository.findAll(PageRequest.of(1, 3));
 		patientPage.forEach(i->{
 			System.out.println(i.getNom());
@@ -85,6 +86,7 @@ public class TpJpaApplication implements CommandLineRunner{
 		});
 		
 		System.out.println("**************************** affiche par Pageable");
+		//第一页  每页3个
 		Page<Patient> pagePatient = patientRepository.findByMalade(true, PageRequest.of(0,3));
 		pagePatient.forEach(o->{
 			System.out.println(o.toString());
