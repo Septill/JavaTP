@@ -18,5 +18,5 @@ public interface PatientRepository extends JpaRepository<Patient, Long>{
 	
 	// 用SQL语句构建一个 JPA里不存在的方法 x y z 代表cherchePqtient的三个参数
 	@Query("Select p from Patient p Where dateNaiss between :x and :y or p.name :z")
-	List<Patient> cherchePatient (@Param:("x") Date d1, @Param:("y") Date d2, @Param("z") String nom);
+	List<Patient> cherchePatient (@Param:("x") Date d1, @Param:("y") Date d2, @Param("z")String nom);
 }
